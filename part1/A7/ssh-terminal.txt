@@ -1,0 +1,118 @@
+┌──(kali㉿kali)-[~]
+└─$ sudo apt install openssh-server -y
+[sudo] password for kali: 
+openssh-server is already the newest version (1:9.9p2-2).
+The following packages were automatically installed and are no longer required:
+  firebird3.0-common      libc++abi1-19         libflac12t64     libgles-dev                  libgtksourceviewmm-3.0-0v5  libopenh264-7          libqt5sensors5     libunwind-19                 python3-ntlm-auth     ruby-zeitwerk
+  firebird3.0-common-doc  libcapstone4          libfmt9          libgles1                     libgumbo2                   libpaper1              libqt5webkit5      libwebrtc-audio-processing1  python3-setproctitle  ruby3.1
+  icu-devtools            libconfig++9v5        libfuse3-3       libglvnd-core-dev            libicu-dev                  libpython3.12-dev      libsuperlu6        libx265-209                  python3.12            ruby3.1-dev
+  libabsl20230802         libconfig9            libgeos3.13.0    libglvnd-dev                 libjxl0.9                   libpython3.12-minimal  libtag1v5          openjdk-23-jre               python3.12-dev        ruby3.1-doc
+  libbfio1                libdirectfb-1.7-7t64  libgl1-mesa-dev  libgtksourceview-3.0-1       libmbedcrypto7t64           libpython3.12-stdlib   libtag1v5-vanilla  openjdk-23-jre-headless      python3.12-minimal    strongswan
+  libc++1-19              libegl-dev            libglapi-mesa    libgtksourceview-3.0-common  libmsgraph-0-1              libpython3.12t64       libtagc0           python3-appdirs              python3.12-venv
+Use 'sudo apt autoremove' to remove them.
+
+Summary:
+  Upgrading: 0, Installing: 0, Removing: 0, Not Upgrading: 91
+                                                                                                                                                                                                                                           
+┌──(kali㉿kali)-[~]
+└─$ sudo systemctl start ssh
+                                                                                                                                                                                                                                           
+┌──(kali㉿kali)-[~]
+└─$ ssh -v localhost
+OpenSSH_9.9p2 Debian-2, OpenSSL 3.5.0 8 Apr 2025
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: Reading configuration data /etc/ssh/ssh_config.d/20-systemd-ssh-proxy.conf
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to localhost [::1] port 22.
+debug1: Connection established.
+debug1: identity file /home/kali/.ssh/id_rsa type -1
+debug1: identity file /home/kali/.ssh/id_rsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519 type -1
+debug1: identity file /home/kali/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_xmss type -1
+debug1: identity file /home/kali/.ssh/id_xmss-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_9.9p2 Debian-2
+debug1: Remote protocol version 2.0, remote software version OpenSSH_9.9p2 Debian-2
+debug1: compat_banner: match: OpenSSH_9.9p2 Debian-2 pat OpenSSH* compat 0x04000000
+debug1: Authenticating to localhost:22 as 'kali'
+debug1: load_hostkeys: fopen /home/kali/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: sntrup761x25519-sha512
+debug1: kex: host key algorithm: ssh-ed25519
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: SSH2_MSG_KEX_ECDH_REPLY received
+debug1: Server host key: ssh-ed25519 SHA256:wvp+ACjon7XdMyzv3rM2ORlKe7Z0rb+t9dpkzLecmUk
+debug1: load_hostkeys: fopen /home/kali/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: Host 'localhost' is known and matches the ED25519 host key.
+debug1: Found key in /home/kali/.ssh/known_hosts:8
+debug1: ssh_packet_send2_wrapped: resetting send seqnr 3
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: Sending SSH2_MSG_EXT_INFO
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: ssh_packet_read_poll2: resetting read seqnr 3
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 134217728 blocks
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_ext_info_client_parse: server-sig-algs=<ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256>
+debug1: kex_ext_info_check_ver: publickey-hostbound@openssh.com=<0>
+debug1: kex_ext_info_check_ver: ping@openssh.com=<0>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_ext_info_client_parse: server-sig-algs=<ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256>
+debug1: Authentications that can continue: publickey,password
+debug1: Next authentication method: publickey
+debug1: get_agent_identities: bound agent to hostkey
+debug1: get_agent_identities: ssh_fetch_identitylist: agent contains no identities
+debug1: Will attempt key: /home/kali/.ssh/id_rsa 
+debug1: Will attempt key: /home/kali/.ssh/id_ecdsa 
+debug1: Will attempt key: /home/kali/.ssh/id_ecdsa_sk 
+debug1: Will attempt key: /home/kali/.ssh/id_ed25519 
+debug1: Will attempt key: /home/kali/.ssh/id_ed25519_sk 
+debug1: Will attempt key: /home/kali/.ssh/id_xmss 
+debug1: Trying private key: /home/kali/.ssh/id_rsa
+debug1: Trying private key: /home/kali/.ssh/id_ecdsa
+debug1: Trying private key: /home/kali/.ssh/id_ecdsa_sk
+debug1: Trying private key: /home/kali/.ssh/id_ed25519
+debug1: Trying private key: /home/kali/.ssh/id_ed25519_sk
+debug1: Trying private key: /home/kali/.ssh/id_xmss
+debug1: Next authentication method: password
+kali@localhost's password: 
+debug1: Authentications that can continue: publickey,password
+Permission denied, please try again.
+kali@localhost's password: 
+Authenticated to localhost ([::1]:22) using "password".
+debug1: channel 0: new session [client-session] (inactive timeout: 0)
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: filesystem
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: client_input_hostkeys: searching /home/kali/.ssh/known_hosts for localhost / (none)
+debug1: client_input_hostkeys: searching /home/kali/.ssh/known_hosts2 for localhost / (none)
+debug1: client_input_hostkeys: hostkeys file /home/kali/.ssh/known_hosts2 does not exist
+debug1: client_input_hostkeys: no new or deprecated keys from server
+debug1: Sending environment.
+debug1: channel 0: setting env LANG = "en_US.UTF-8"
+debug1: pledge: fork
+Linux kali 6.12.20-amd64 #1 SMP PREEMPT_DYNAMIC Kali 6.12.20-1kali1 (2025-03-26) x86_64
+
+The programs included with the Kali GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Kali GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sat Feb 28 22:36:23 2026 from ::1
