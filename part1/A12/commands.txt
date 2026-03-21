@@ -1,0 +1,17 @@
+linux-file-hashing.png-
+
+Command 1: openssl dgst -sha1 "key" test.txt
+Result 1: HMAC -SHA1(test.txt) = 833095bc2cd6287adf2841f9546d8e3f1aa15adf
+
+Command 2: sha256sum test.txt
+Result 2: 179ea43440c7802a6579c14119e118cccd3e03acc84858a0a2535e50273501cd	test.txt
+
+linux-file-encryption.png-
+
+Command 1: gpg -c test.txt
+Result 1: gpg: WARNING! unsafe permissions on homedir
+
+Command 2: gpg test.txt.gpg
+Result 2: gpg:AES256.CFP encrypted data
+	  gpg: encrypted with 1 passphrase
+
