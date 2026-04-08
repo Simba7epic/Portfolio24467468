@@ -1,0 +1,16 @@
+Example 1:
+Which one looks more suspicious?
+
+Message A:
+
+“Hi, your parcel is delayed. Track here: https://delivery-update.com/track”
+
+Message B:
+
+“Hi, your Amazon order #12345 is delayed. You can track it via your Amazon account directly.”
+
+
+Example 2:
+“Your bank account has been locked. Verify immediately: http://bank-secure-login.com”
+
+Would you click it or ignore it?
