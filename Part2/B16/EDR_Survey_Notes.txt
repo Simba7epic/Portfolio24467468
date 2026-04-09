@@ -1,0 +1,32 @@
+Endpoint Detection and Response (EDR):
+	-Detect connected endpoints and assess their risks
+	-Continuous monitoring of laptops, desktops, servers, and IoT devices
+
+CrowdStrike Falcon:
+•	Real-time threat detection and prevention 
+•	AI-driven behavioural analysis 
+•	Advanced threat hunting capabilities 
+•	Cloud-native scalability and rapid deployment
+
+
+Microsoft Defender for Endpoint:
+•	Automated attack surface reduction 
+•	Endpoint behavioural monitoring 
+•	AI-assisted threat investigation and prioritisation 
+•	Seamless integration with Microsoft 365 and Azure environments 
+
+
+SentinelOne Singularity:
+•	Autonomous detection and response 
+•	AI-based behavioural threat detection 
+•	Endpoint rollback and recovery capabilities 
+•	Offline protection and containment 
+
+
+
+Comparison:
+•	CrowdStrike Falcon - speed, scalability, and cloud-native threat intelligence, but is expensive
+•	Microsoft Defender - Endpoint focuses on ecosystem integration and enterprise security management, but has Microsoft ecosystem dependency
+•	SentinelOne Singularity - autonomous detection and automated remediation, but has less flexible tuning
+
+
