@@ -1,0 +1,53 @@
+Endpoint Detection and Response (EDR) Testing Notes
+
+
+Tool Used:
+-Microsoft Defender for Endpoint (Windows Security built-in)
+
+
+Configuration Steps:
+	-Enabled Real-time Protection
+	-Enabled Cloud-delivered Protection
+	-Enabled Automatic Sample Submission
+	-Enabled Tamper Protection
+
+
+Tests Performed:
+1. EICAR Anti-Malware Test File
+	-Created/downloaded EICAR standard test file
+	-File was executed/opened to trigger detection
+	-Microsoft Defender successfully detected the file as malicious
+	-File was quarantined / blocked automatically
+	-Alert recorded in Protection History
+
+2. Command Prompt Reconnaissance Simulation
+	-Executed the following benign system commands:
+
+	whoami
+	ipconfig
+	systeminfo
+
+	Observation:
+	No alerts were triggered
+	Commands executed normally
+	No malicious behaviour detected
+
+
+Key Observations:
+	-Defender successfully detected known malware signatures (EICAR test)
+	-Real-time protection responded immediately upon execution
+	-No alerts were generated for benign system enumeration commands
+	-Detection relies on known signatures and behavioural context rather than individual system commands
+
+
+Limitations Identified:
+	-No detection for isolated reconnaissance-style commands
+	-Requires known signatures or behavioural patterns for alerts
+	-Limited visibility into benign system activity
+
+
+Evidence Captured:
+	-Windows Security settings screenshots
+	-Protection History showing EICAR detection
+	-CMD output screenshots (system commands)
+	-Defender alert/quarantine notification
