@@ -1,20 +1,20 @@
 Participant Feedback – Cybersecurity Learning Activity
-Participant 1
+Participant 1 - Selina
 
 The activity was easy to follow and helped me understand the difference between HTTP and HTTPS. I didn’t realise that HTTPS doesn’t always mean a website is safe, especially when the domain name looks suspicious. The link section was the most useful for me.
 
-Participant 2
+Participant 2 - Oliva
 
 I found the password section helpful because I usually use simple passwords. I didn’t know that adding symbols and length makes such a big difference. The worksheet made me think more carefully about my own password habits.
 
-Participant 3
+Participant 3 - Jackie
 
 The phishing and link questions were a bit tricky at first, especially the one with the long URL. After discussing it, I understood how attackers try to trick users with fake domains. This was probably the most interesting part.
 
-Participant 4
+Participant 4 - Samuel
 
 The activity was engaging and not too difficult. The scenarios helped me understand real-life situations, like someone pretending to be IT support. I learned that you should never give out your password, even if the request seems urgent.
 
-Participant 5
+Participant 5 - Charlotte
 
 I didn’t know that files like “.exe” could be hidden in something that looks like a normal document. The file safety section was new to me and made me more cautious about downloading attachments.
