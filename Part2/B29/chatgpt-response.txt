@@ -1,0 +1,91 @@
+Explain CVE-2026-26113 and suggest practical mitigation strategies for developers and system administrators.
+
+What is CVE-2026-26113?
+
+CVE-2026-26113 is a high-severity vulnerability in Microsoft Office caused by an untrusted pointer dereference flaw in how Office handles memory references.
+
+In simpler terms: Office is incorrectly trusting or interpreting a memory pointer coming from untrusted data (e.g., a malicious document). This can cause the program to jump to attacker-controlled code instead of legitimate code.
+
+Key technical characteristics
+Type: Remote Code Execution (RCE)
+Root cause: Memory corruption / untrusted pointer dereference
+Attack vector: Local file or document interaction (e.g., opening or previewing a malicious Office file)
+User interaction: Often minimal (sometimes just opening or previewing a file)
+Impact:
+Execution of arbitrary code
+Full compromise of the Office process context
+Potential lateral movement on the system
+
+Microsoft Office versions including Microsoft 365 Apps, Office 2016–2021, and SharePoint Server variants are affected according to public advisories.
+
+Severity is rated high (CVSS ~7.8–8.4) depending on the assessment model.
+
+How exploitation typically works
+Attacker crafts a malicious Office document (Word/Excel/PowerPoint)
+Victim receives it via email, download, or shared drive
+Victim opens or previews the document (sometimes even in Preview Pane)
+Office processes malformed data → invalid pointer is dereferenced
+Control flow is hijacked → attacker code executes with Office privileges
+Practical mitigation strategies
+1. Patch management (most important)
+
+System administrators
+
+Apply Microsoft security updates from Patch Tuesday immediately
+Prioritise Office + Microsoft 365 Apps updates
+Remove or isolate unsupported versions (e.g., Office 2013 or older)
+
+Developers (enterprise environments)
+
+Ensure automated update pipelines include Office / Office dependencies
+Track MSRC advisories for Office memory corruption issues
+2. Reduce attack surface in Office
+Enable Protected View
+Forces documents from email/Internet to open in sandboxed mode
+Prevents direct code execution during initial open
+Disable or restrict Preview Pane (Outlook)
+Reduces “zero-click” style exposure (important for this CVE class)
+Restrict Active Content
+Disable macros from untrusted sources
+Block ActiveX where possible
+3. Email and file security controls
+Deploy attachment sandboxing (e.g., detonation environments)
+Use gateway filtering for Office file types
+Block or quarantine:
+macro-enabled documents (.docm, .xlsm)
+unknown sender attachments
+4. Endpoint hardening
+Enable Windows Defender Exploit Protection (Office process mitigations)
+Use Attack Surface Reduction (ASR) rules:
+Block Office from creating child processes
+Block Win32 API calls from Office apps where possible
+Run Office under standard user privileges (not admin)
+5. Network & detection controls
+Monitor for Office spawning suspicious processes (e.g., cmd.exe, powershell.exe)
+Detect abnormal memory access patterns in Office processes (EDR tools)
+Alert on Office making outbound connections immediately after document open
+6. Least privilege + segmentation
+Ensure users do not have local admin rights
+Separate high-risk users (finance, HR) into stricter security groups
+Restrict access to sensitive systems from Office-equipped endpoints
+7. Incident response readiness
+Log all Office document opens from email sources
+Maintain forensic logging for:
+process creation
+memory injection events
+Be prepared to isolate endpoints quickly if exploitation is suspected
+Summary
+
+CVE-2026-26113 is a memory corruption vulnerability in Microsoft Office that allows code execution via malicious documents. It is especially dangerous because exploitation can occur with minimal user interaction and fits well into phishing-based attacks.
+
+The most effective defence is straightforward:
+
+Patch immediately
+Harden Office (Protected View + macro restrictions)
+Reduce attack surface via email filtering and ASR rules
+
+If you want, I can also:
+
+map this CVE to a full attack tree
+or show how defenders would detect exploitation in a SOC environment
+or compare it with similar Office RCE CVEs to show patterns for your assignment context

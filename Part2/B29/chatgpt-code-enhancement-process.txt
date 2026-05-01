@@ -1,0 +1,122 @@
+given this CVE-2026-26113 vulnerable code, please enhance its security to remove this vulnerability: def process_file(file_path): with open(file_path, "r") as f: content = f.read() exec(content) # Unsafe: allows arbitrary code execution
+
+
+You’re right to flag this as vulnerable. The issue here is not just “bad practice” — it’s arbitrary code execution (ACE) via exec(), which completely breaks the security model.
+
+❌ Why this is vulnerable
+exec(content)
+
+This allows an attacker to:
+
+Run any Python code
+Access files (os.remove, open("/etc/passwd"))
+Spawn processes
+Exfiltrate data
+Escalate privileges (if run with elevated rights)
+
+So even a “simple text file” becomes a full remote code execution vector.
+
+✅ Secure redesign (safe alternatives)
+Option 1: If the file is data → parse it (BEST FIX)
+
+If the file is meant to contain data, not code, you should replace exec entirely.
+
+Example: JSON-based safe version
+import json
+
+def process_file(file_path):
+    with open(file_path, "r") as f:
+        content = json.load(f)  # Safe parsing
+
+    return content
+
+✔ No code execution
+✔ Structured input
+✔ Easy validation
+
+Option 2: If you only need simple expressions
+
+If the file contains simple math or expressions (not full Python):
+
+import ast
+import operator
+
+def safe_eval(expr):
+    allowed_nodes = {
+        ast.Expression, ast.BinOp, ast.Add, ast.Sub,
+        ast.Mult, ast.Div, ast.Constant
+    }
+
+    tree = ast.parse(expr, mode="eval")
+
+    for node in ast.walk(tree):
+        if type(node) not in allowed_nodes:
+            raise ValueError("Unsafe expression detected")
+
+    return eval(compile(tree, "<string>", "eval"))
+
+Then:
+
+def process_file(file_path):
+    with open(file_path, "r") as f:
+        content = f.read()
+
+    return safe_eval(content)
+
+✔ Controlled evaluation
+✔ No system access
+⚠ Still more complex than necessary → avoid if possible
+
+Option 3: If you thought you needed exec (common mistake)
+
+Replace dynamic execution with dispatch tables:
+
+❌ Old pattern (dangerous)
+exec(content)
+✅ Safe pattern
+def add(a, b):
+    return a + b
+
+def multiply(a, b):
+    return a * b
+
+COMMANDS = {
+    "add": add,
+    "multiply": multiply
+}
+
+def process_file(file_path):
+    with open(file_path, "r") as f:
+        command, a, b = f.read().split()
+
+    if command not in COMMANDS:
+        raise ValueError("Invalid command")
+
+    return COMMANDS[command](int(a), int(b))
+
+✔ No arbitrary execution
+✔ Fully controlled behavior
+✔ Easy to audit
+
+🔐 Key security principle
+
+Never execute raw file content as code.
+
+If you are using exec, one of these is always true:
+
+You are solving the wrong problem
+Or you are accepting a critical security vulnerability
+🧠 Final hardened version (recommended)
+
+If this is a general “file processor”:
+
+import json
+
+def process_file(file_path):
+    with open(file_path, "r") as f:
+        return json.load(f)
+
+If you want, I can also:
+
+show how this maps to CVE-style exploitation chains (useful for your assignment)
+or demonstrate how attackers typically turn exec() into full system compromise step-by-step (defensive view)
