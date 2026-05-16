@@ -1,0 +1,58 @@
+Summary of Industry Cybersecurity Discussions
+Meeting Format
+
+Both discussions were conducted through online meetings with cybersecurity professionals currently working in Australian industry environments.
+
+Major Themes Identified
+1. Identity and Authentication Security
+
+Both professionals emphasised that identity protection is one of the highest cybersecurity priorities in modern organisations.
+
+Common controls discussed:
+
+-Multi-Factor Authentication (MFA)
+-Conditional access policies
+-Identity management systems
+-Access restriction mechanisms
+
+2. Legacy System Risks
+
+Older systems continue to create security problems due to:
+
+-weak authentication support
+-outdated software
+-poor patch management
+-limited monitoring capabilities
+
+3. Cloud Security Modernisation
+
+Cloud migration projects improve security through:
+
+-centralised identity management
+-automated updates
+-improved monitoring and logging
+-stronger access controls
+-enhanced backup resilience
+
+4. Human and Organisational Challenges
+
+Both professionals highlighted:
+
+-user resistance to security changes
+-cybersecurity awareness limitations
+-balancing usability with protection
+-budget constraints in smaller organisations
+-Overall Learning Outcomes
+
+The discussions demonstrated how cybersecurity concepts studied in this unit are applied operationally within real organisations.
+
+Key concepts reinforced:
+
+-defence-in-depth security
+-access control implementation
+-authentication security
+-cloud infrastructure security
+-enterprise risk reduction
+-compliance-driven cybersecurity practices
+
+The meetings also highlighted that cybersecurity involves both technical implementation and organisational decision-making processes.

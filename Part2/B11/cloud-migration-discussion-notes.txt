@@ -1,0 +1,32 @@
+Online Meeting Notes – Cybersecurity Professional B
+
+Meeting Type: Online discussion (Microsoft Teams)
+Industry Area: Cloud Infrastructure / IT Solutions
+Topic: Cloud Migration & Enterprise Security Modernisation
+
+Key Discussion Points
+-Many small businesses still operate outdated legacy systems
+-Legacy infrastructure creates authentication and patching risks
+-Current projects involve migration to Microsoft 365 and Microsoft Entra
+-Centralised identity management improves organisational security
+-Cloud platforms provide stronger monitoring and logging capabilities
+-MFA and conditional access policies commonly integrated during migration
+-Private cloud environments used for sensitive business data
+-Misconfigured cloud environments are a major modern security risk
+-Data migration security must be carefully managed during transitions
+-Secure decommissioning of old infrastructure is important
+
+Security Technologies / Practices Mentioned
+-Microsoft 365
+-Microsoft Entra
+-Cloud identity management
+-Centralised authentication systems
+-Conditional access controls
+-Cloud-based logging and monitoring
+-Backup and disaster recovery systems
+
+Key Learning Outcomes
+-Cloud migration is closely linked to cybersecurity improvement
+-Centralised authentication improves access control visibility
+-Modern cloud environments provide stronger built-in security features
+-Incorrect cloud configuration can introduce significant vulnerabilities
